@@ -8,7 +8,7 @@ test('page screenshot',async({page})=>{
     await page.screenshot({path:'tests/screenshots/'+Date.now()+'PepagoraHomePage.png'})
 });
 
-test.only('page screenshot1',async({page})=>{
+test('page screenshot1',async({page})=>{
     await page.goto('https://staging.pepagora.com/',{waitUntil:'domcontentloaded'})
 
     await page.waitForSelector('button[onclick="closePopup()"]')
