@@ -63,7 +63,7 @@ jobs:
             to: pepagoraqareports@gmail.com 
             from: "QA Bot <${{ secrets.EMAIL_USERNAME }}>"
             content_type: text/html
-            body: |
+            html_body: |
               Hello,<br><br>
               Please find attached the latest Playwright test report.<br>
               <br>
