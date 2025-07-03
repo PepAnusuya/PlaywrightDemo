@@ -51,24 +51,24 @@ jobs:
             SOURCE_DIR: playwright-report
             DEST_DIR: reports/${{ steps.timestamp.outputs.ts }}
       - name: Send Playwright report via email (with attachment)
-          if: always()
-            uses: dawidd6/action-send-mail@v3
-            with:
-              server_address: smtp.gmail.com
-              server_port: 465
-              secure: true
-              username: ${{ secrets.EMAIL_USERNAME }}
-              password: ${{ secrets.EMAIL_PASSWORD }}
-              subject: "📄 Playwright Test Report - ${{ steps.timestamp.outputs.ts }}"
-              to: pepagoraqareports@gmail.com 
-              from: "QA Bot <${{ secrets.EMAIL_USERNAME }}>"
-              content_type: text/html
-              body: |
-                Hello,<br><br>
-                Please find attached the latest Playwright test report.<br>
-                <br>
-                Regards,<br>
-                QA Automation Bot
-              attachments: |
-                playwright-report/index.html
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+            server_address: smtp.gmail.com
+            server_port: 465
+            secure: true
+            username: ${{ secrets.EMAIL_USERNAME }}
+            password: ${{ secrets.EMAIL_PASSWORD }}
+            subject: "📄 Playwright Test Report - ${{ steps.timestamp.outputs.ts }}"
+            to: pepagoraqareports@gmail.com 
+            from: "QA Bot <${{ secrets.EMAIL_USERNAME }}>"
+            content_type: text/html
+            body: |
+              Hello,<br><br>
+              Please find attached the latest Playwright test report.<br>
+              <br>
+              Regards,<br>
+              QA Automation Bot
+            attachments: |
+              playwright-report/index.html
 
